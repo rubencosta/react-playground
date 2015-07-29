@@ -1,25 +1,24 @@
 var bower_dir = __dirname + '/bower_components';
 
-module.exports = {
-    entry: ['./src/app/app.js'],
-
-    // The resolve.alias object takes require expressions
-    // (require('react')) as keys and filepath to actual
-    // module as values
-    resolve: {
-        alias: {
-            'react': bower_dir + '/react/react.min.js'
-        }
+var config = {
+    addVendor: function (name, path) {
+        this.resolve.alias[name] = path;
+        this.module.noParse.push(new RegExp(path));
     },
+    entry: ['./src/app/app.js'],
+    resolve: {alias: {}},
     output: {
         path: './build',
         filename: 'bundle.js'
     },
     module: {
         // There is no reason for WebPack to parse this file
-        noParse: [bower_dir + '/react/react.min.js'],
+        noParse: [],
         loaders: [
             {test: /\.js$/, loader: 'jsx-loader'}
         ]
     }
 };
+
+config.addVendor('react', bower_dir + '/react/react.min.js');
+module.exports = config;
