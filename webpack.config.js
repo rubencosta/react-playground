@@ -10,7 +10,7 @@ var config = {
         }
     },
     entry: {
-        app: ['./src/app/app.js'],
+        app: ['webpack/hot/dev-server', './src/app/app.js'],
         vendor: []
     },
     resolve: {alias: {}},
