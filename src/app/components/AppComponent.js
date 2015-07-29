@@ -1,5 +1,11 @@
 'use strict';
 
-module.exports = function () {
-    console.log('Hello from component')
-};
+var React = require('react');
+
+module.exports = React.createClass({
+    render: function () {
+        return (
+            <h1>Hello world!</h1>
+        )
+    }
+});
