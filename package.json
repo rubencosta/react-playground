@@ -1,0 +1,16 @@
+{
+  "name": "react-playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
