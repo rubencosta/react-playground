@@ -5,7 +5,7 @@ var config = {
     addVendor: function (name, path) {
         this.resolve.alias[name] = path;
         this.entry.vendor.push(name);
-        if(!(path.indexOf('.css') > -1)){
+        if (!(path.indexOf('.css') > -1)) {
             this.module.noParse.push(new RegExp(path));
         }
     },
@@ -25,6 +25,7 @@ var config = {
         noParse: [],
         loaders: [
             {test: /\.js$/, loader: 'jsx-loader'},
+            {test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
             {test: /\.css$/, loader: 'style-loader!css-loader'}
         ]
     }

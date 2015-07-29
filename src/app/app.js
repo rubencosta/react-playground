@@ -1,4 +1,5 @@
 'use strict';
+require('./app.styl')
 
 var React = require('react');
 var AppComponent = require('./components/AppComponent.js');
