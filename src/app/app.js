@@ -1,7 +1,18 @@
 'use strict';
-require('./app.styl')
+require('./app.styl');
 
 var React = require('react');
-var AppComponent = require('./components/AppComponent.js');
+var MdlCard = require('./components/mdlCard/MdlCard.js');
 
-React.render(<AppComponent/>, document.body);
+var App = React.createClass({
+    render: function () {
+        return (
+            <MdlCard
+                titleText="My face is squared"
+                supportingText="Sometimes I feel that my face is not round enough"
+            />
+        )
+    }
+});
+
+React.render(<App/>, document.body);
