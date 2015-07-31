@@ -10,8 +10,8 @@ module.exports = React.createClass({
         return (
             <div className="mdl-layout mdl-js-layout mdl-mdl-layout__drawer-button mdl-layout--fixed-header">
                 <MdlHeader/>
-                <MdlLayoutDrawer/>
-                <MdlLayoutContent/>
+                <MdlLayoutDrawer ref="userList"/>
+                <MdlLayoutContent ref="messageBox"/>
             </div>
         )
     }
