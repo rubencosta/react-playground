@@ -31,8 +31,9 @@ var config = {
     }
 };
 
-config.addVendor('react', bower_dir + '/react/react.min.js');
-config.addVendor('material-design-lite', bower_dir + '/material-design-lite/material.min.js');
+config.addVendor('react', bower_dir + '/react/react.js');
+config.addVendor('reflux', bower_dir + '/reflux/dist/reflux.js');
+config.addVendor('material-design-lite', bower_dir + '/material-design-lite/material.js');
 config.addVendor('material-design-lite.css', bower_dir + '/material-design-lite/material.css');
 
 module.exports = config;

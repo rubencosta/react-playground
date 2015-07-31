@@ -14,6 +14,7 @@
   ],
   "dependencies": {
     "react": "~0.13.3",
-    "material-design-lite": "~1.0.1"
+    "material-design-lite": "~1.0.1",
+    "reflux": "~0.2.11"
   }
 }
