@@ -27,7 +27,7 @@ module.exports = React.createClass({
     render: function () {
         return (
             <div className="mdl-layout__drawer">
-                <span className="mdl-layout-title">Title</span>
+                <span className="mdl-layout-title">{this.props.title}</span>
                 <nav className="mdl-navigation">
                     {
                         this.state.messageList.map(function (message) {

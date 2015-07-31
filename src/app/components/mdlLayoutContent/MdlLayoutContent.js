@@ -12,7 +12,7 @@ module.exports = React.createClass({
             <main className="mdl-layout__content">
                 <div className="page-content">{
                     this.state.messages.map(function (message) {
-                        return <li>{message}</li>
+                        return <li>{message.contents}</li>
                     })
                 }</div>
             </main>
