@@ -2,6 +2,7 @@
 
 require('./shiatUserList.styl');
 
+var classNames = require('classnames');
 var React = require('react');
 var MessageStore = require('../../../stores/MessageStore');
 var ChatActions = require('../../../actions/ChatActions');
@@ -45,8 +46,13 @@ module.exports = React.createClass({
     },
     render: function () {
         var chats = this.state.chatList.map(function (chat, index) {
+            var chatClassNames = classNames('mdl-navigation__link', 'shiat-user-list-container',
+                {
+                    active: this.state.openChatID === chat.user.id
+                });
+
             return (
-                <a className="mdl-navigation__link" onClick={this.updateOpenChat.bind(this, index)}>
+                <a className={chatClassNames} onClick={this.updateOpenChat.bind(this, index)}>
                     <div className="shiat-user-list-item">
                         <div className="shiat-user-list-image"
                              style={{backgroundImage: 'url("' + chat.user.profilePicture + '")'}}></div>
