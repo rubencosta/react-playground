@@ -83,5 +83,10 @@ module.exports = Reflux.createStore({
     },
     getAllChats: function () {
         return messages;
+    },
+    updateOpenChatID: function (id) {
+        openChatID = id;
+        messages[openChatID].lastAccess.currentUser = +new Date();
+        this.trigger();
     }
 });
