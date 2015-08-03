@@ -3,6 +3,7 @@
 require('./shiatMessageBox.styl');
 
 var React = require('react');
+var classNames = require('classnames');
 var MessageStore = require('../../../stores/MessageStore');
 var ShiatReplyBox = require('../shiatReplyBox/ShiatReplyBox');
 
@@ -24,8 +25,13 @@ module.exports = React.createClass({
     },
     render: function () {
         var messages = this.state.messages.map(function (message) {
+            var messageClassNames = classNames('shiat-message-item', {
+                'reply-message': message.from === 1
+            });
             return (
-                <div className="mdl-shadow--2dp shiat-message-item">{message.contents}</div>
+                <div className={messageClassNames}>
+                    <div className="mdl-shadow--2dp">{message.contents}</div>
+                </div>
             )
         });
 
