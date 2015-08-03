@@ -16,6 +16,7 @@
     "react": "~0.13.3",
     "material-design-lite": "~1.0.1",
     "reflux": "~0.2.11",
-    "roboto-fontface": "~0.4.3"
+    "roboto-fontface": "~0.4.3",
+    "classnames": "~2.1.3"
   }
 }

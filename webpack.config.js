@@ -37,5 +37,6 @@ config.addVendor('reflux', bower_dir + '/reflux/dist/reflux.js');
 config.addVendor('material-design-lite', bower_dir + '/material-design-lite/material.js');
 config.addVendor('material-design-lite.css', bower_dir + '/material-design-lite/material.css');
 config.addVendor('roboto-fontface.css', bower_dir + '/roboto-fontface/css/roboto-fontface.css');
+config.addVendor('classnames', bower_dir + '/classnames/index.js');
 
 module.exports = config;
