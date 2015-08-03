@@ -26,7 +26,8 @@ var config = {
         loaders: [
             {test: /\.js$/, loader: 'jsx-loader'},
             {test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
-            {test: /\.css$/, loader: 'style-loader!css-loader'}
+            {test: /\.css$/, loader: 'style-loader!css-loader'},
+            {test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.woff2$|\.eot|\.ttf$|\.wav$|\.mp3$/, loader: "file"}
         ]
     }
 };
@@ -35,5 +36,6 @@ config.addVendor('react', bower_dir + '/react/react.js');
 config.addVendor('reflux', bower_dir + '/reflux/dist/reflux.js');
 config.addVendor('material-design-lite', bower_dir + '/material-design-lite/material.js');
 config.addVendor('material-design-lite.css', bower_dir + '/material-design-lite/material.css');
+config.addVendor('roboto-fontface.css', bower_dir + '/roboto-fontface/css/roboto-fontface.css');
 
 module.exports = config;
