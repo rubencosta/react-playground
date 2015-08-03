@@ -1,5 +1,7 @@
 'use strict';
 
+require('./shiatUserList.styl');
+
 var React = require('react');
 var MessageStore = require('../../../stores/MessageStore');
 var ChatActions = require('../../../actions/ChatActions');
@@ -13,7 +15,7 @@ function getStateFromStore() {
 
         var messagesLength = chat.messages.length;
         chatList.push({
-            lastMessage: chat.messages[messagesLength -1],
+            lastMessage: chat.messages[messagesLength - 1],
             lastAccess: chat.lastAccess,
             user: chat.user
         })
@@ -43,7 +45,13 @@ module.exports = React.createClass({
     },
     render: function () {
         var chats = this.state.chatList.map(function (chat, index) {
-            return <a className="mdl-navigation__link" onClick={this.updateOpenChat.bind(this, index)}>{chat.user.name}<br/> {chat.lastAccess.currentUser}<br/></a>
+            return (
+                <a className="mdl-navigation__link" onClick={this.updateOpenChat.bind(this, index)}>
+                    <div className="shiat-user-list-image" style={{backgroundImage: 'url("' + chat.user.profilePicture + '")'}}></div>
+                    {chat.user.name}<br/>
+                    {chat.lastAccess.currentUser}<br/>
+                </a>
+                )
         }.bind(this));
 
         return (
