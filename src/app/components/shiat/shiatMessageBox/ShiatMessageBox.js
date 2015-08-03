@@ -4,7 +4,7 @@ require('./shiatMessageBox.styl');
 
 var React = require('react');
 var MessageStore = require('../../../stores/MessageStore');
-
+var ShiatReplyBox = require('../shiatReplyBox/ShiatReplyBox');
 
 function getStateFromStore() {
     return MessageStore.getChatByUserID(MessageStore.getOpenChatUserID());
@@ -31,7 +31,10 @@ module.exports = React.createClass({
 
         return (
             <main className="mdl-layout__content">
-                <div className="page-content">{messages}</div>
+                <div className="page-content">
+                    {messages}
+                </div>
+                <ShiatReplyBox/>
             </main>
         )
     }
