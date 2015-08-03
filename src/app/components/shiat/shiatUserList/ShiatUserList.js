@@ -3,6 +3,7 @@
 require('./shiatUserList.styl');
 
 var classNames = require('classnames');
+var prettyDates = require('../../../shared/prettyDates');
 var React = require('react');
 var MessageStore = require('../../../stores/MessageStore');
 var ChatActions = require('../../../actions/ChatActions');
@@ -67,7 +68,7 @@ module.exports = React.createClass({
                         <div className="shiat-user-list-image"
                              style={{backgroundImage: 'url("' + chat.user.profilePicture + '")'}}></div>
                         <div className="shiat-user-list-name">{chat.user.name}</div>
-                        <div className="shiat-user-list-timestamp">{chat.lastMessage.timestamp}</div>
+                        <div className="shiat-user-list-timestamp">{prettyDates.getShortDate(chat.lastMessage.timestamp)}</div>
                         <div className="shiat-user-list-message">{chat.lastMessage.contents}</div>
                     </div>
                 </a>
