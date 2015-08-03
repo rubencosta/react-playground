@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var ShiatHeader = require('./shiatHeader/ShiatHeader');
 var ShiatUserList = require('./shiatUserList/ShiatUserList');
 var ShiatMessageBox = require('./shiatMessageBox/ShiatMessageBox');
 
