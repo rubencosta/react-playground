@@ -45,6 +45,16 @@ module.exports = React.createClass({
         ChatActions.updateOpenChatID(this.state.chatList[index].user.id);
     },
     render: function () {
+        this.state.chatList.sort(function (a, b) {
+            if (a.lastMessage.timestamp > b.lastMessage.timestamp) {
+                return -1;
+            }
+            if (a.lastMessage.timestamp < b.lastMessage.timestamp) {
+                return 1;
+            }
+            return 0;
+        });
+
         var chats = this.state.chatList.map(function (chat, index) {
             var chatClassNames = classNames('mdl-navigation__link', 'shiat-user-list-container',
                 {
