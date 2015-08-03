@@ -1,5 +1,7 @@
 'use strict';
 
+require('./shiatMessageBox.styl');
+
 var React = require('react');
 var MessageStore = require('../../../stores/MessageStore');
 
@@ -21,13 +23,15 @@ module.exports = React.createClass({
         this.setState(getStateFromStore());
     },
     render: function () {
+        var messages = this.state.messages.map(function (message) {
+            return (
+                <div className="mdl-shadow--2dp shiat-message-item">{message.contents}</div>
+            )
+        });
+
         return (
             <main className="mdl-layout__content">
-                <div className="page-content">{
-                    this.state.messages.map(function (message) {
-                        return <li>{message.contents}</li>
-                    })
-                }</div>
+                <div className="page-content">{messages}</div>
             </main>
         )
     }
