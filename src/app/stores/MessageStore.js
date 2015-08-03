@@ -3,7 +3,7 @@
 var Reflux = require('reflux');
 var ChatActions = require('../actions/ChatActions');
 
-var messages = {
+var chats = {
     2: {
         user: {
             profilePicture: 'https://avatars0.githubusercontent.com/u/7922109?v=3&s=460',
@@ -69,7 +69,7 @@ var messages = {
     }
 };
 
-var openChatID = parseInt(Object.keys(messages)[0], 10);
+var openChatID = parseInt(Object.keys(chats)[0], 10);
 
 module.exports = Reflux.createStore({
     init: function () {
@@ -79,14 +79,18 @@ module.exports = Reflux.createStore({
         return openChatID;
     },
     getChatByUserID: function (id) {
-        return messages[id];
+        return chats[id];
     },
     getAllChats: function () {
-        return messages;
+        return chats;
     },
     updateOpenChatID: function (id) {
         openChatID = id;
-        messages[openChatID].lastAccess.currentUser = +new Date();
+        chats[openChatID].lastAccess.currentUser = +new Date();
+        this.trigger();
+    },
+    sendMessage: function (message) {
+        chats[openChatID].messages.push(message);
         this.trigger();
     }
 });

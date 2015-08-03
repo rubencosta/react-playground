@@ -3,6 +3,7 @@
 require('./shiatReplyBox.styl');
 
 var React = require('react');
+var ChatActions = require('../../../actions/ChatActions');
 
 module.exports = React.createClass({
     getInitialState: function () {
@@ -12,13 +13,17 @@ module.exports = React.createClass({
     },
     handleKeyDown: function(event) {
         if (event.keyCode === 13) {
+            ChatActions.sendMessage({
+                contents: this.state.value,
+                timestamp: +new Date(),
+                from: 1
+            });
             this.setState({
                 value: ''
             });
         }
     },
     onChangeHandler: function (event) {
-        console.log(event);
         this.setState(function () {
             return {
                 value: React.findDOMNode(this.refs.input).value
