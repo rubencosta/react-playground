@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var MessageStore = require('../../stores/MessageStore');
+var MessageStore = require('../../../stores/MessageStore');
 
 
 function getStateFromStore() {

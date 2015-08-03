@@ -2,12 +2,12 @@
 require('./app.styl');
 
 var React = require('react');
-var Chat = require('./components/chat/Chat');
+var Shiat = require('./components/shiat/Shiat');
 
 var App = React.createClass({
     render: function () {
         return (
-            <Chat/>
+            <Shiat/>
         )
     }
 });
