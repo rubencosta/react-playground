@@ -3,9 +3,22 @@
 var React = require('react');
 var MessageStore = require('../../stores/MessageStore');
 
+
+function getStateFromStore() {
+    return MessageStore.getChatByUserID(MessageStore.getOpenChatUserID());
+}
 module.exports = React.createClass({
     getInitialState: function () {
-        return MessageStore.getChatByUserID(MessageStore.getOpenChatUserID());
+        return getStateFromStore();
+    },
+    componentDidMount: function () {
+        this.unsubscribe = MessageStore.listen(this.onMessagesChange);
+    },
+    componentWillUnmount: function () {
+        this.unsubscribe();
+    },
+    onMessagesChange: function () {
+        this.setState(getStateFromStore());
     },
     render: function () {
         return (
