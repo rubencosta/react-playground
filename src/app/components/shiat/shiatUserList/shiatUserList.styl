@@ -1,6 +1,22 @@
-.shiat-user-list-image
-    width w=50px
-    height w
-    border-radius 50%
-    background-position center
-    background-size cover
+.shiat-user-list-item
+    display flex
+    flex-flow row wrap
+    & > *
+        flex 1 100%
+
+    .shiat-user-list-image
+        flex 0 1 40px
+        height 40px
+        border-radius 50%
+        background-position center
+        background-size cover
+
+    .shiat-user-list-name
+        margin-left 4px
+        flex 2 0px
+
+    .shiat-user-list-timestamp
+        flex 2 0px
+
+    .shiat-user-list-message
+        padding-top 8px

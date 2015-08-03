@@ -47,11 +47,15 @@ module.exports = React.createClass({
         var chats = this.state.chatList.map(function (chat, index) {
             return (
                 <a className="mdl-navigation__link" onClick={this.updateOpenChat.bind(this, index)}>
-                    <div className="shiat-user-list-image" style={{backgroundImage: 'url("' + chat.user.profilePicture + '")'}}></div>
-                    {chat.user.name}<br/>
-                    {chat.lastAccess.currentUser}<br/>
+                    <div className="shiat-user-list-item">
+                        <div className="shiat-user-list-image"
+                             style={{backgroundImage: 'url("' + chat.user.profilePicture + '")'}}></div>
+                        <div className="shiat-user-list-name">{chat.user.name}</div>
+                        <div className="shiat-user-list-timestamp">{chat.lastMessage.timestamp}</div>
+                        <div className="shiat-user-list-message">{chat.lastMessage.contents}</div>
+                    </div>
                 </a>
-                )
+            )
         }.bind(this));
 
         return (
