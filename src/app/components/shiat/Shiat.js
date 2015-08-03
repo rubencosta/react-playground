@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var ShiatUserList = require('./shiatUserList/ShiatUserList');
+var ShiatUserList = require('./shiatChatList/ShiatChatList');
 var ShiatMessageBox = require('./shiatMessageBox/ShiatMessageBox');
 
 module.exports = React.createClass({

@@ -1,6 +1,6 @@
 'use strict';
 
-require('./shiatUserList.styl');
+require('./shiatChatList.styl');
 
 var classNames = require('classnames');
 var prettyDates = require('../../../shared/prettyDates');
