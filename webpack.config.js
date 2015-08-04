@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var bower_dir = __dirname + '/bower_components';
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
     addVendor: function (name, path) {
@@ -15,7 +16,12 @@ var config = {
     },
     resolve: {alias: {}},
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+        new HtmlWebpackPlugin({
+            title: 'React playground',
+            template: './src/index.tpl.html',
+            inject: true
+        })
     ],
     output: {
         path: './build',
