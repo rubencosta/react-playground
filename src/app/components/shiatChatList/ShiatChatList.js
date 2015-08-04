@@ -3,10 +3,10 @@
 require('./shiatChatList.styl');
 
 var classNames = require('classnames');
-var prettyDates = require('../../../shared/prettyDates');
+var prettyDates = require('../../shared/prettyDates');
 var React = require('react');
-var MessageStore = require('../../../stores/MessageStore');
-var ChatActions = require('../../../actions/ChatActions');
+var MessageStore = require('../../stores/MessageStore');
+var ChatActions = require('../../actions/ChatActions');
 
 function getStateFromStore() {
     var allChats = MessageStore.getAllChats();

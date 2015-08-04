@@ -4,7 +4,7 @@ require('./shiatMessageBox.styl');
 
 var React = require('react');
 var classNames = require('classnames');
-var MessageStore = require('../../../stores/MessageStore');
+var MessageStore = require('../../stores/MessageStore');
 var ShiatReplyBox = require('../shiatReplyBox/ShiatReplyBox');
 
 function getStateFromStore() {

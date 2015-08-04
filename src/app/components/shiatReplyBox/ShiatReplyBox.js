@@ -3,7 +3,7 @@
 require('./shiatReplyBox.styl');
 
 var React = require('react');
-var ChatActions = require('../../../actions/ChatActions');
+var ChatActions = require('../../actions/ChatActions');
 
 module.exports = React.createClass({
     getInitialState: function () {
