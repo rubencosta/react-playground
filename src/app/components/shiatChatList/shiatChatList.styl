@@ -1,32 +1,22 @@
-.shiat-user-list-container
+.shiat-user-list-item
+    display flex
+    flex-flow row wrap
+    & > *
+        flex 1 100%
 
-    &.active
-        background-color #757575
-        color rgb(250,250,250) !important
+    .shiat-user-list-image
+        flex 0 1 40px
+        height 40px
+        border-radius 50%
+        background-position center
+        background-size cover
 
-    &.active:hover
-        color #757575 !important
+    .shiat-user-list-name
+        margin-left 4px
+        flex 2 0
 
+    .shiat-user-list-timestamp
+        flex 2 0
 
-    .shiat-user-list-item
-        display flex
-        flex-flow row wrap
-        & > *
-            flex 1 100%
-
-        .shiat-user-list-image
-            flex 0 1 40px
-            height 40px
-            border-radius 50%
-            background-position center
-            background-size cover
-
-        .shiat-user-list-name
-            margin-left 4px
-            flex 2 0
-
-        .shiat-user-list-timestamp
-            flex 2 0
-
-        .shiat-user-list-message
-            padding-top 8px
+    .shiat-user-list-message
+        padding-top 8px

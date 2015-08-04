@@ -2,11 +2,11 @@
 
 require('./shiatChatList.styl');
 
-var classNames = require('classnames');
 var prettyDates = require('../../shared/prettyDates');
 var React = require('react');
 var MessageStore = require('../../stores/MessageStore');
 var ChatActions = require('../../actions/ChatActions');
+var Radium = require('radium');
 
 function getStateFromStore() {
     var allChats = MessageStore.getAllChats();
@@ -29,7 +29,7 @@ function getStateFromStore() {
     };
 }
 
-module.exports = React.createClass({
+var ChatList = React.createClass({
     getInitialState: function () {
         return getStateFromStore();
     },
@@ -57,18 +57,25 @@ module.exports = React.createClass({
         });
 
         var chats = this.state.chatList.map(function (chat, index) {
-            var chatClassNames = classNames('mdl-navigation__link', 'shiat-user-list-container',
-                {
-                    active: this.state.openChatID === chat.user.id
-                });
+            var activeChatStyles = {
+                backgroundColor: '#757575',
+                color: 'rgb(250,250,250)',
+                ':hover': {
+                    backgroundColor: 'rgb(224,224,224)',
+                    color: '#757575'
+                }
+            };
 
             return (
-                <a className={chatClassNames} onClick={this.updateOpenChat.bind(this, index)}>
+                <a className="mdl-navigation__link"
+                   style={this.state.openChatID === chat.user.id ? activeChatStyles : {}}
+                   onClick={this.updateOpenChat.bind(this, index)}>
                     <div className="shiat-user-list-item">
                         <div className="shiat-user-list-image"
                              style={{backgroundImage: 'url("' + chat.user.profilePicture + '")'}}></div>
                         <div className="shiat-user-list-name">{chat.user.name}</div>
-                        <div className="shiat-user-list-timestamp">{prettyDates.getShortDate(chat.lastMessage.timestamp)}</div>
+                        <div
+                            className="shiat-user-list-timestamp">{prettyDates.getShortDate(chat.lastMessage.timestamp)}</div>
                         <div className="shiat-user-list-message">{chat.lastMessage.contents}</div>
                     </div>
                 </a>
@@ -85,3 +92,4 @@ module.exports = React.createClass({
         )
     }
 });
+module.exports = Radium(ChatList);
