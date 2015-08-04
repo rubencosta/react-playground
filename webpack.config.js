@@ -1,22 +1,20 @@
 var webpack = require('webpack');
-var bower_dir = __dirname + '/bower_components';
+var vendor_dir = __dirname + '/node_modules';
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
     addVendor: function (name, path) {
         this.resolve.alias[name] = path;
-        this.entry.vendor.push(name);
+        this.entry.app.push(name);
         if (!(path.indexOf('.css') > -1)) {
             this.module.noParse.push(new RegExp(path));
         }
     },
     entry: {
-        app: ['webpack/hot/dev-server', './src/app/app.js'],
-        vendor: []
+        app: ['webpack/hot/dev-server', './src/app/app.js']
     },
     resolve: {alias: {}},
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
         new HtmlWebpackPlugin({
             title: 'React playground',
             template: './src/index.tpl.html',
@@ -38,11 +36,8 @@ var config = {
     }
 };
 
-config.addVendor('react', bower_dir + '/react/react.js');
-config.addVendor('reflux', bower_dir + '/reflux/dist/reflux.js');
-config.addVendor('material-design-lite', bower_dir + '/material-design-lite/material.js');
-config.addVendor('material-design-lite.css', bower_dir + '/material-design-lite/material.css');
-config.addVendor('roboto-fontface.css', bower_dir + '/roboto-fontface/css/roboto-fontface.css');
-config.addVendor('classnames', bower_dir + '/classnames/index.js');
+config.addVendor('material-design-lite', vendor_dir + '/material-design-lite/material.js');
+config.addVendor('material-design-lite.css', vendor_dir + '/material-design-lite/material.css');
+config.addVendor('roboto-fontface.css', vendor_dir + '/roboto-fontface/css/roboto-fontface.css');
 
 module.exports = config;
