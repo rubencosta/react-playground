@@ -3,7 +3,7 @@ webpackJsonp([0],[
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(2);
+	module.exports = __webpack_require__(3);
 
 
 /***/ },
@@ -15,10 +15,10 @@ webpackJsonp([0],[
 		Author Tobias Koppers @sokra
 	*/
 	/*globals window __webpack_hash__ */
-	if(false) {
+	if(true) {
 		var lastData;
 		var upToDate = function upToDate() {
-			return lastData.indexOf(__webpack_hash__) >= 0;
+			return lastData.indexOf(__webpack_require__.h()) >= 0;
 		};
 		var check = function check() {
 			module.hot.check(true, function(err, updatedModules) {
@@ -47,7 +47,7 @@ webpackJsonp([0],[
 					check();
 				}
 
-				require("./log-apply-result")(updatedModules, updatedModules);
+				__webpack_require__(2)(updatedModules, updatedModules);
 
 				if(upToDate()) {
 					console.log("[HMR] App is up to date.");
@@ -77,13 +77,44 @@ webpackJsonp([0],[
 
 /***/ },
 /* 2 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	module.exports = function(updatedModules, renewedModules) {
+		var unacceptedModules = updatedModules.filter(function(moduleId) {
+			return renewedModules && renewedModules.indexOf(moduleId) < 0;
+		});
+
+		if(unacceptedModules.length > 0) {
+			console.warn("[HMR] The following modules couldn't be hot updated: (They would need a full reload!)");
+			unacceptedModules.forEach(function(moduleId) {
+				console.warn("[HMR]  - " + moduleId);
+			});
+		}
+
+		if(!renewedModules || renewedModules.length === 0) {
+			console.log("[HMR] Nothing hot updated.");
+		} else {
+			console.log("[HMR] Updated modules:");
+			renewedModules.forEach(function(moduleId) {
+				console.log("[HMR]  - " + moduleId);
+			});
+		}
+	};
+
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	__webpack_require__(3);
+	__webpack_require__(4);
 
-	var React = __webpack_require__(7);
-	var Shiat = __webpack_require__(8);
+	var React = __webpack_require__(8);
+	var Shiat = __webpack_require__(9);
 
 	var App = React.createClass({displayName: "App",
 	    render: function () {
@@ -97,23 +128,23 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(4);
+	var content = __webpack_require__(5);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
+	var update = __webpack_require__(7)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
-	if(false) {
+	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./app.styl", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./app.styl");
+			module.hot.accept(5, function() {
+				var newContent = __webpack_require__(5);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -123,10 +154,10 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(5)();
+	exports = module.exports = __webpack_require__(6)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/icon?family=Material+Icons);", ""]);
 
@@ -137,17 +168,17 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(7);
-	var ShiatUserList = __webpack_require__(9);
-	var ShiatMessageBox = __webpack_require__(17);
+	var React = __webpack_require__(8);
+	var ShiatUserList = __webpack_require__(10);
+	var ShiatMessageBox = __webpack_require__(18);
 
 	module.exports = React.createClass({displayName: "module.exports",
 	    render: function () {
@@ -163,18 +194,18 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(10);
+	__webpack_require__(11);
 
-	var classNames = __webpack_require__(12);
-	var prettyDates = __webpack_require__(13);
-	var React = __webpack_require__(7);
-	var MessageStore = __webpack_require__(14);
-	var ChatActions = __webpack_require__(16);
+	var classNames = __webpack_require__(13);
+	var prettyDates = __webpack_require__(14);
+	var React = __webpack_require__(8);
+	var MessageStore = __webpack_require__(15);
+	var ChatActions = __webpack_require__(17);
 
 	function getStateFromStore() {
 	    var allChats = MessageStore.getAllChats();
@@ -256,23 +287,23 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(11);
+	var content = __webpack_require__(12);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
+	var update = __webpack_require__(7)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
-	if(false) {
+	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/stylus-loader/index.js!./shiatChatList.styl", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/stylus-loader/index.js!./shiatChatList.styl");
+			module.hot.accept(12, function() {
+				var newContent = __webpack_require__(12);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -282,10 +313,10 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(5)();
+	exports = module.exports = __webpack_require__(6)();
 	// imports
 
 
@@ -296,8 +327,8 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 12 */,
-/* 13 */
+/* 13 */,
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -377,13 +408,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Reflux = __webpack_require__(15);
-	var ChatActions = __webpack_require__(16);
+	var Reflux = __webpack_require__(16);
+	var ChatActions = __webpack_require__(17);
 
 	var chats = {
 	    2: {
@@ -479,13 +510,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 15 */,
-/* 16 */
+/* 16 */,
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Reflux = __webpack_require__(15);
+	var Reflux = __webpack_require__(16);
 
 	module.exports = Reflux.createActions([
 	    'updateOpenChatID',
@@ -494,17 +525,17 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(18);
+	__webpack_require__(19);
 
-	var React = __webpack_require__(7);
-	var classNames = __webpack_require__(12);
-	var MessageStore = __webpack_require__(14);
-	var ShiatReplyBox = __webpack_require__(20);
+	var React = __webpack_require__(8);
+	var classNames = __webpack_require__(13);
+	var MessageStore = __webpack_require__(15);
+	var ShiatReplyBox = __webpack_require__(21);
 
 	function getStateFromStore() {
 	    return MessageStore.getChatByUserID(MessageStore.getOpenChatUserID());
@@ -547,23 +578,23 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(19);
+	var content = __webpack_require__(20);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
+	var update = __webpack_require__(7)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
-	if(false) {
+	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/stylus-loader/index.js!./shiatMessageBox.styl", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/stylus-loader/index.js!./shiatMessageBox.styl");
+			module.hot.accept(20, function() {
+				var newContent = __webpack_require__(20);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -573,10 +604,10 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(5)();
+	exports = module.exports = __webpack_require__(6)();
 	// imports
 
 
@@ -587,15 +618,15 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(21);
+	__webpack_require__(22);
 
-	var React = __webpack_require__(7);
-	var ChatActions = __webpack_require__(16);
+	var React = __webpack_require__(8);
+	var ChatActions = __webpack_require__(17);
 
 	module.exports = React.createClass({displayName: "module.exports",
 	    getInitialState: function () {
@@ -633,23 +664,23 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(22);
+	var content = __webpack_require__(23);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
+	var update = __webpack_require__(7)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
-	if(false) {
+	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/stylus-loader/index.js!./shiatReplyBox.styl", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/stylus-loader/index.js!./shiatReplyBox.styl");
+			module.hot.accept(23, function() {
+				var newContent = __webpack_require__(23);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -659,10 +690,10 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(5)();
+	exports = module.exports = __webpack_require__(6)();
 	// imports
 
 
