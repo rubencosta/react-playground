@@ -25,12 +25,17 @@ module.exports = React.createClass({
     },
     render: function () {
         var messages = this.state.messages.map(function (message) {
-            var messageClassNames = classNames('shiat-message-item', {
-                'reply-message': message.from === 1
-            });
+            var replyMessageItemStyles = {
+                justifyContent: 'flex-end'
+            };
+            var replyMessageContentStyles = {
+                backgroundColor: '#757575',
+                color: 'rgb(250, 250, 250)'
+            };
             return (
-                <div className={messageClassNames}>
-                    <div className="mdl-shadow--2dp">{message.contents}</div>
+                <div className="shiat-message-item" style={message.from === 1 ? replyMessageItemStyles : {}}>
+                    <div className="mdl-shadow--2dp"
+                         style={message.from === 1 ? replyMessageContentStyles: {}}>{message.contents}</div>
                 </div>
             )
         });
