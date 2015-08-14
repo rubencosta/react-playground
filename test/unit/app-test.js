@@ -1,14 +1,14 @@
 'use strict';
 
-jest.dontMock('../../src/app/app');
+jest.dontMock('../../src/app/components/chat/chat');
 
-describe('App', function () {
+describe('Chat', function () {
     var React = require('react/addons');
     var TestUtils = React.addons.TestUtils;
-    var App = require('../../src/app/app');
+    var Chat = require('../../src/app/components/chat/chat');
 
     it('should exists', function () {
-        var app = TestUtils.renderIntoDocument(<App />);
+        var app = TestUtils.renderIntoDocument(<Chat />);
         expect(TestUtils.isCompositeComponent(app)).toBeTruthy();
     });
 });

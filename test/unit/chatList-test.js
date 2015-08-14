@@ -1,6 +1,6 @@
 'use strict';
 
-jest.dontMock('../../src/app/components/shiatChatList/ShiatChatList');
+jest.dontMock('../../src/app/components/chatList/chatList');
 
 describe('ChatList', function () {
     var React = require('react/addons');
@@ -8,7 +8,7 @@ describe('ChatList', function () {
     var ChatList;
 
     beforeEach(function() {
-        ChatList = require('../../src/app/components/shiatChatList/ShiatChatList');
+        ChatList = require('../../src/app/components/chatList/chatList');
     });
 
     it('should exists', function() {
