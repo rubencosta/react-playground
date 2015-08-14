@@ -35,7 +35,8 @@
   },
   "scripts": {
     "test": "jest",
-    "dev": "webpack-dev-server --devtool eval --hot --progress --colors --content-base build"
+    "prestart": "npm install",
+    "start": "webpack-dev-server --devtool eval --hot --progress --colors --content-base build"
   },
   "author": "",
   "license": "ISC",
