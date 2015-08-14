@@ -1,7 +1,5 @@
 'use strict';
 
-require('./messageBox.styl');
-
 var React = require('react');
 var MessageStore = require('../../stores/MessageStore');
 var ReplyBox = require('../replyBox/replyBox');

@@ -1,7 +1,5 @@
 'use strict';
 
-require('./replyBox.styl');
-
 var React = require('react');
 var ChatActions = require('../../actions/ChatActions');
 

@@ -1,7 +1,5 @@
 'use strict';
 
-require('./chatList.styl');
-
 var React = require('react');
 var Radium = require('radium');
 var prettyDates = require('../../shared/prettyDates');
