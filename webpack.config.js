@@ -11,7 +11,7 @@ var config = {
         }
     },
     entry: {
-        app: ['webpack/hot/dev-server', './src/app/app.js']
+        app: ['webpack/hot/dev-server', './src/app/index.js']
     },
     resolve: {alias: {}},
     plugins: [

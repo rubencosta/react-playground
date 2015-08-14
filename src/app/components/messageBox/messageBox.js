@@ -1,10 +1,10 @@
 'use strict';
 
-require('./shiatMessageBox.styl');
+require('./messageBox.styl');
 
 var React = require('react');
 var MessageStore = require('../../stores/MessageStore');
-var ShiatReplyBox = require('../shiatReplyBox/ShiatReplyBox');
+var ReplyBox = require('../replyBox/replyBox');
 
 function getStateFromStore() {
     return MessageStore.getChatByUserID(MessageStore.getOpenChatUserID());
@@ -32,7 +32,7 @@ module.exports = React.createClass({
                 color: 'rgb(250, 250, 250)'
             };
             return (
-                <div className="shiat-message-item" style={message.from === 1 ? replyMessageItemStyles : {}}>
+                <div className="message-item" style={message.from === 1 ? replyMessageItemStyles : {}}>
                     <div className="mdl-shadow--2dp"
                          style={message.from === 1 ? replyMessageContentStyles: {}}>{message.contents}</div>
                 </div>
@@ -44,7 +44,7 @@ module.exports = React.createClass({
                 <div className="page-content">
                     {messages}
                 </div>
-                <ShiatReplyBox/>
+                <ReplyBox/>
             </main>
         )
     }

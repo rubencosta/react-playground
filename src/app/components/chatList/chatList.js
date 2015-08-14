@@ -1,12 +1,12 @@
 'use strict';
 
-require('./shiatChatList.styl');
+require('./chatList.styl');
 
-var prettyDates = require('../../shared/prettyDates');
 var React = require('react');
+var Radium = require('radium');
+var prettyDates = require('../../shared/prettyDates');
 var MessageStore = require('../../stores/MessageStore');
 var ChatActions = require('../../actions/ChatActions');
-var Radium = require('radium');
 
 function getStateFromStore() {
     var allChats = MessageStore.getAllChats();
@@ -70,13 +70,13 @@ var ChatList = React.createClass({
                 <a className="mdl-navigation__link"
                    style={this.state.openChatID === chat.user.id ? activeChatStyles : {}}
                    onClick={this.updateOpenChat.bind(this, index)}>
-                    <div className="shiat-user-list-item">
-                        <div className="shiat-user-list-image"
+                    <div className="user-list-item">
+                        <div className="user-list-image"
                              style={{backgroundImage: 'url("' + chat.user.profilePicture + '")'}}></div>
-                        <div className="shiat-user-list-name">{chat.user.name}</div>
+                        <div className="user-list-name">{chat.user.name}</div>
                         <div
-                            className="shiat-user-list-timestamp">{prettyDates.getShortDate(chat.lastMessage.timestamp)}</div>
-                        <div className="shiat-user-list-message">{chat.lastMessage.contents}</div>
+                            className="user-list-timestamp">{prettyDates.getShortDate(chat.lastMessage.timestamp)}</div>
+                        <div className="user-list-message">{chat.lastMessage.contents}</div>
                     </div>
                 </a>
             )

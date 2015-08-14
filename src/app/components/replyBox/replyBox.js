@@ -1,6 +1,6 @@
 'use strict';
 
-require('./shiatReplyBox.styl');
+require('./replyBox.styl');
 
 var React = require('react');
 var ChatActions = require('../../actions/ChatActions');
